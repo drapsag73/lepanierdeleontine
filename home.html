@@ -1,0 +1,168 @@
+<div class="container">
+    <table id="entete">
+        <tr>
+            <td class="colnew">
+                <button class="btn btn-success" ng-click="editUser('new', 'post')" >
+                    <span class="glyphicon glyphicon-user"></span>  Nouvel Utilisateur
+                </button>
+               
+            </td>
+            <td class="colliste">
+                <h1>Liste des utilisateurs</h1>
+            </td>
+            <td class="colsearch">
+                <input type ="text" id="recherche" ng-model="query.$" ng-init=""/>
+                <button class="btn">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+     
+            </td>
+        </tr>
+    </table>
+    <div ng-hide='loading'>
+        <table id="customers">
+            <tr>
+                <th></th>
+              <th ng-click="value='nomutilisateur'">Id</th>
+              <th ng-click="value='nom'">Nom</th>
+              <th ng-click="value='prenom'">Prénom</th>
+              <th>adresse</th>
+              <th ng-click="value='codepostal'">Code Postal</th>
+              <th ng-click="value='ville'">Ville</th>
+            </tr>
+            <tr ng-repeat="post in posts  | orderBy:value | filter:query">
+                <td class="colbtn">
+                    <button class="btn" ng-click="editUser(post, 'put')">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button class="btn" ng-click="editUser(post, 'delete')">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+                <td class="coluser" ng-click = "detail(post.nomutilisateur)">{{post.nomutilisateur}}
+                </td>
+                <td class="colnom" ng-click = "detail(post.nomutilisateur)">{{post.nom}}
+                </td>
+                <td class="colprenom" ng-click = "detail(post.nomutilisateur)">{{post.prenom}}
+                </td>
+                <td class="coladresse" ng-click = "detail(post.adresse)">{{post.adresse}}
+                </td>
+                <td class="colcodepostal" ng-click = "detail(post.codepostal)">{{post.codepostal}}
+                </td>
+                <td class="colville" ng-click = "detail(post.ville)">{{post.ville}}
+                </td>
+            </tr>
+               
+        </table>
+                    
+    
+    <div id="gestionutilisateurs" ng-hide="!gestion">
+        
+        <hr>
+         
+        <h3 ng-show="nouveau">Création d'un nouvel utilisateur :</h3>
+        <h3 ng-show="edit">Modification d'un utilisateur :</h3>
+        <h3 ng-show="sup">Suppression d'un utilisateur :</h3>
+    
+       
+        <form class="form-horizontal" name="formSaisie">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">*Identifiant :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="nomutilisateur" ng-disabled="sup || ann" placeholder="Identifiant" required>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label class="col-sm-2 control-label">*Nom :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="nom" ng-disabled="sup || ann" placeholder="Nom" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">*Prénom :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="prenom" ng-disabled="sup || ann" placeholder="Prénom" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Adresse :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="adresse" ng-disabled="sup || ann" placeholder="Adresse">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Code Postal :</label>
+                <div class="col-sm-10">
+                    <input type="text" size=5 ng-model="codepostal" ng-disabled="sup || ann" placeholder="Code Postal">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Ville :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="ville" ng-disabled="sup || ann" placeholder="Ville">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">*Messagerie :</label>
+                <div class="col-sm-10">
+                    <input type="email" ng-model="messagerie" ng-disabled="sup || ann" placeholder="Messagerie" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Date de naissance :</label>
+                <div class="col-sm-10">
+                    <input type="text" ng-model="datenaissance" ng-disabled="sup || ann" placeholder="Date naissance">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Téléphone :</label>
+                <div class="col-sm-10">
+                    <input type="tel" ng-model="telephone" ng-disabled="sup || ann" placeholder="Téléphone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Sexe :</label>
+                <div class="col-sm-10">
+                    <select ng-model="user.sexe" ng-disabled="sup || ann" placeholder="Sexe">
+                        <option value="male">Masculin</option>
+                        <option value="female">Féminin</option>
+                    </select>
+                </div>
+            </div>
+        <table id="bouton">
+            <tr>
+                <td>
+                    <button class="btn btn-success" ng-click="editUser('annuler','annuler')">
+                        <span class="glyphicon glyphicon-remove"></span>  Annuler
+                    </button>
+                </td>
+                <td> </td>
+                <td>
+                    <button type="submit" class="btn btn-success" ng-disabled="false" ng-show="nouveau" ng-click="create(user)">
+                        <span class="glyphicon glyphicon-save"></span> Valider la Création
+                    </button>
+                    <button type="submit" class="btn btn-success" ng-disabled="error || incomplete" ng-show="edit">
+                        <span class="glyphicon glyphicon-save"></span> Valider la Modification
+                    </button>
+                     <button class="btn btn-success" ng-disabled="error || incomplete" ng-show="sup" ng-click="delete(id)">
+                       <span class="glyphicon glyphicon-save"></span> Valider la Suppression
+                    </button>
+                </td>
+<!--                <td>
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                    <a href="#/#entete">Retour haut de page</a>
+                </td>-->
+            </tr>
+        </table>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+   
+<!--        	<h2>{{post.nom}}</h2>
+        	<p>{{post.prenom}}</p>
+        		
+        	<a href="#/comments/{{post.nomutilisateur}}">Voir les Informations</a>
+-->		

@@ -1,0 +1,119 @@
+#entete.h1 {
+    text-align: center;
+}
+
+td.colliste {
+    text-align: center;
+    width:65%;
+}
+
+td.colsearch {
+    text-align: right;
+}
+
+td.colnew {
+    text-align: left;
+}
+
+#entete{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+       width: 100%;
+    margin-left:auto; 
+    margin-right:auto;
+
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin-left:auto; 
+    margin-right:auto;
+
+}
+
+#customers td, #customers th {
+    font-size: 1em;
+    border: 1px solid #98bf21;
+    padding: 3px 7px 2px 7px;
+}
+
+#customers th {
+    font-size: 1.1em;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+    cursor:pointer;
+
+}
+td.colbtn {
+    text-align: left;
+    width:9%;
+
+}
+
+td.coluser {
+    text-align: left;
+    width: auto;
+}
+
+td.colnom {
+    text-align: center;
+    width:20%;
+    
+}
+td.colprenom {
+    text-align: center;
+    width:10%;
+}
+td.coladresse {
+    text-align: center;
+    width:35%;
+}
+td.colcodepostal {
+    text-align: center;
+    width:10%;
+}
+td.colville {
+    text-align: center;
+    width:10%;
+}
+
+#customers tr:nth-child(odd) td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+#customers tr:nth-child(even) td {
+    color: #000000;
+    background-color: #FFF;
+}
+
+#customers tr:hover td {
+    background-color: #ffe8e8;
+    cursor:pointer;
+} 
+
+a:link {
+ color: #000;
+ text-decoration: none;
+ }
+a:visited {
+ color: #000;
+ text-decoration: none;
+ }
+a:active {
+ color: #000;
+ text-decoration: none;
+}
+a:hover {
+ color: #000;
+ text-decoration: none;
+}
+
+div {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+} 
+
+  

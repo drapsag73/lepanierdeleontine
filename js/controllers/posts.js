@@ -13,11 +13,11 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
         }
         
         $scope.create = function(user){
+             console.log($scope);
                 Post.postPost(user);
         }
 
          $scope.delete = function(id){
-             console.log(id);
                 Post.postDelete(id);
         }
          
@@ -28,6 +28,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
     $scope.ann = true;
     $scope.error = false;
     $scope.incomplete = false;
+    $scope.user = {};
     
     $scope.editUser = function(id, action) {
          if (action == 'post') {
@@ -37,18 +38,19 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.ann = false;
             $scope.gestion = true;
             $scope.validation = "création";
-            
             $scope.incomplete = true;
-            $scope.identifiant = '';
-            $scope.nom = '';
-            $scope.prenom = '';
-            $scope.adresse = '';
-            $scope.codepostal = '';
-            $scope.ville = '';
-            $scope.messagerie = '';
-            $scope.datenaissance = ''
-            $scope.telephone = '';
-            $scope.sexe = '';
+             
+            $scope.user.id = '';
+            $scope.user.identifiant = '';
+            $scope.user.nom = '';
+            $scope.user.prenom = '';
+            $scope.user.adresse = '';
+            $scope.user.codepostal = '';
+            $scope.user.ville = '';
+            $scope.user.messagerie = '';
+            $scope.user.datenaissance = ''
+            $scope.user.telephone = '';
+            $scope.user.sexe = '';
        } else if (action == "put"){
             $scope.nouveau = false;
             $scope.edit = true;
@@ -58,18 +60,19 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.validation = "modification";
             $scope.incomplete = false;
             
-            $scope.id = id._id;
-            $scope.identifiant = id.nomutilisateur;
-            $scope.nom = id.nom;
-            $scope.prenom = id.prenom;
-            $scope.adresse = id.adresse;
-            $scope.codepostal = id.codepostal;
-            $scope.ville = id.ville;
-            $scope.messagerie = id.messagerie;
-            $scope.datenaissance = id.datenaissance;
-            $scope.telephone = id.telephone;
-            $scope.sexe = id.sexe;
+            $scope.user.id = id._id;
+            $scope.user.identifiant = id.nomutilisateur;
+            $scope.user.nom = id.nom;
+            $scope.user.prenom = id.prenom;
+            $scope.user.adresse = id.adresse;
+            $scope.user.codepostal = id.codepostal;
+            $scope.user.ville = id.ville;
+            $scope.user.messagerie = id.messagerie;
+            $scope.user.datenaissance = id.datenaissance;
+            $scope.user.telephone = id.telephone;
+            $scope.user.sexe = id.sexe;
       } else if (action == "delete"){
+          alert('OK')
            $scope.nouveau = false;
             $scope.edit = false;
             $scope.sup = true;
@@ -78,17 +81,17 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.validation = "suppression";
             $scope.incomplete = false;
             
-            $scope.id = id._id;
-            $scope.identifiant = id.nomutilisateur;
-            $scope.nom = id.nom;
-            $scope.prenom = id.prenom;
-            $scope.adresse = id.adresse;
-            $scope.codepostal = id.codepostal;
-            $scope.ville = id.ville;
-            $scope.messagerie = id.messagerie;
-            $scope.datenaissance = id.datenaissance;
-            $scope.telephone = id.telephone;
-            $scope.sexe = id.sexe;
+            $scope.user.id = id._id;
+            $scope.user.identifiant = id.nomutilisateur;
+            $scope.user.nom = id.nom;
+            $scope.user.prenom = id.prenom;
+            $scope.user.adresse = id.adresse;
+            $scope.user.codepostal = id.codepostal;
+            $scope.user.ville = id.ville;
+            $scope.user.messagerie = id.messagerie;
+            $scope.user.datenaissance = id.datenaissance;
+            $scope.user.telephone = id.telephone;
+            $scope.user.sexe = id.sexe;
         } else {
             $scope.nouveau = false;
             $scope.edit = true;
@@ -97,16 +100,17 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.gestion = false;
             $scope.validation = "rien";
             
-            $scope.identifiant = '';
-            $scope.nom = '';
-            $scope.prenom = '';
-            $scope.adresse = '';
-            $scope.codepostal = '';
-            $scope.ville = '';
-            $scope.messagerie = '';
-            $scope.datenaissance = '';
-            $scope.telephone = '';
-            $scope.sexe = '';
+            $scope.user.id = '';
+            $scope.user.identifiant = '';
+            $scope.user.nom = '';
+            $scope.user.prenom = '';
+            $scope.user.adresse = '';
+            $scope.user.codepostal = '';
+            $scope.user.ville = '';
+            $scope.user.messagerie = '';
+            $scope.user.datenaissance = '';
+            $scope.user.telephone = '';
+            $scope.user.sexe = '';
             $location.href="#/#entete"
         };
     };

@@ -69,55 +69,55 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">*Identifiant :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="nomutilisateur" ng-disabled="sup || ann" placeholder="Identifiant" required>
+                    <input type="text" ng-model="user.nomutilisateur" ng-disabled="sup || ann" placeholder="Identifiant" required>
                 </div>
             </div> 
             <div class="form-group">
                 <label class="col-sm-2 control-label">*Nom :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="nom" ng-disabled="sup || ann" placeholder="Nom" required>
+                    <input type="text" ng-model="user.nom" ng-disabled="sup || ann" placeholder="Nom" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">*Prénom :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="prenom" ng-disabled="sup || ann" placeholder="Prénom" required>
+                    <input type="text" ng-model="user.prenom" ng-disabled="sup || ann" placeholder="Prénom" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Adresse :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="adresse" ng-disabled="sup || ann" placeholder="Adresse">
+                    <input type="text" ng-model="user.adresse" ng-disabled="sup || ann" placeholder="Adresse">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Code Postal :</label>
                 <div class="col-sm-10">
-                    <input type="text" size=5 ng-model="codepostal" ng-disabled="sup || ann" placeholder="Code Postal">
+                    <input type="text" size=5 ng-model="user.codepostal" ng-pattern="/[0-9]/" ng-disabled="sup || ann" placeholder="Code Postal">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Ville :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="ville" ng-disabled="sup || ann" placeholder="Ville">
+                    <input type="text" ng-model="user.ville" ng-disabled="sup || ann" placeholder="Ville">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">*Messagerie :</label>
                 <div class="col-sm-10">
-                    <input type="email" ng-model="messagerie" ng-disabled="sup || ann" placeholder="Messagerie" required>
+                    <input type="email" ng-model="user.messagerie" ng-disabled="sup || ann" placeholder="Messagerie" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Date de naissance :</label>
                 <div class="col-sm-10">
-                    <input type="text" ng-model="datenaissance" ng-disabled="sup || ann" placeholder="Date naissance">
+                    <input type="text" ng-model="user.datenaissance" ng-disabled="sup || ann" placeholder="Date naissance">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">Téléphone :</label>
                 <div class="col-sm-10">
-                    <input type="tel" ng-model="telephone" ng-disabled="sup || ann" placeholder="Téléphone">
+                    <input type="tel" ng-model="user.telephone" ng-disabled="sup || ann" placeholder="Téléphone">
                 </div>
             </div>
             <div class="form-group">
@@ -138,13 +138,13 @@
                 </td>
                 <td> </td>
                 <td>
-                    <button type="submit" class="btn btn-success" ng-disabled="false" ng-show="nouveau" ng-click="create(user)">
+                    <button class="btn btn-success" ng-disabled="false" ng-show="nouveau" ng-click="create(user)">
                         <span class="glyphicon glyphicon-save"></span> Valider la Création
                     </button>
-                    <button type="submit" class="btn btn-success" ng-disabled="error || incomplete" ng-show="edit">
+                    <button class="btn btn-success" ng-disabled="error || incomplete" ng-show="edit">
                         <span class="glyphicon glyphicon-save"></span> Valider la Modification
                     </button>
-                     <button class="btn btn-success" ng-disabled="error || incomplete" ng-show="sup" ng-click="delete(id)">
+                     <button class="btn btn-success" ng-disabled="error || incomplete" ng-show="sup" ng-click="delete(user.id)">
                        <span class="glyphicon glyphicon-save"></span> Valider la Suppression
                     </button>
                 </td>

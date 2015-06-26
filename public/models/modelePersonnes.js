@@ -4,17 +4,16 @@ var Schema       = mongoose.Schema;
 
 var PersonneSchema   = new Schema({
     sexe:           { type: String, match: /[MF]/ }
-    ,identifiant:    String
+    ,identifiant:    { type: String, index: true }
     ,prenom:         String
     ,nom:            String
     ,adresse:        String
     ,codepostal:     { type: String, match: /^[0-9]{5}$/ }
     ,ville:          String
     ,messagerie:     String
-    ,datenaissance:  Date
+    ,datenaissance:  String
     ,telephone:      String
-    ,nomutilisateur: { type: String, index: true }
-//    email:          { type: String, match: /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2, 6}$/ }
+ //    email:          { type: String, match: /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2, 6}$/ }
     
 });
 

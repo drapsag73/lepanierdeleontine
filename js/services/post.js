@@ -50,7 +50,6 @@ app.factory('Post', function($http, $q) {
         },
         
         postDelete : function(id){
-            console.log(id);
    			var deferred = $q.defer();
              $http.delete('http://192.168.0.16:8090/personnes/' + id)
                 .success(function(data, status){
@@ -60,6 +59,22 @@ app.factory('Post', function($http, $q) {
                 })
 				.error(function(data, status){
 						deferred.reject("Impossible de supprimer l'utilisateur");
+					});
+           
+        },
+        
+        postPut : function(user){
+            console.log(user.identifiant);
+            console.log(user.id);
+   			var deferred = $q.defer();
+             $http.put('http://192.168.0.16:8090/personnes/' + user.id, user)
+                .success(function(data, status){
+                    console.log('MISE A JOUR OK');
+  					factory.posts = data;
+					deferred.resolve(factory.posts);
+                })
+				.error(function(data, status){
+						deferred.reject("Impossible de mettre à jour l'utilisateur " + user.nom);
 					});
            
         }

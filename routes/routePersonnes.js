@@ -108,12 +108,15 @@ routePersonnes.route('/:personne_id')
     
     // update the personne with this id (accessed at PUT http://localhost:8090/personnes/:personne_id)
     .put(function(req, res) {
+    
+        console.log("mise à jour : " + req.body.sexe)
 
         // use our personne model to find the personne we want
         Personne.findById(req.params.personne_id, function(err, personne) {
 
             if (err)
                 res.send(err);
+            console.log
 
             personne.sexe = req.body.sexe;
             personne.prenom = req.body.prenom;  
@@ -125,6 +128,7 @@ routePersonnes.route('/:personne_id')
             personne.messagerie = req.body.messagerie;
             personne.telephone =  req.body.telephone;
             personne.nomutilisateur = req.body.nomutilisateur;
+            personne.identifiant = req.body.identifiant;
                     
   // update the personnes info
 

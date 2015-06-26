@@ -13,13 +13,31 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
         }
         
         $scope.create = function(user){
-             console.log($scope);
                 Post.postPost(user);
         }
 
-         $scope.delete = function(id){
+        $scope.delete = function(id){
                 Post.postDelete(id);
         }
+        
+        $scope.update = function(user){
+            if(isDate(user.datenaissance)){
+                $scope.valideDate = true;
+                Post.postPut(user);
+            }else{
+               $scope.valideDate = false;
+ //               alert("Date invalide !");
+            }
+         }
+               
+        $scope.valideDate = true;
+        $scope.changeDate = function(sDate){
+           if(isDate(sDate)){
+               $scope.valideDate = true;
+            }else{
+                $scope.valideDate = false;
+            }
+         }
          
    // $scope.edit = false;
     $scope.nouveau = false;
@@ -48,7 +66,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.user.codepostal = '';
             $scope.user.ville = '';
             $scope.user.messagerie = '';
-            $scope.user.datenaissance = ''
+            $scope.user.datenaissance = '';
             $scope.user.telephone = '';
             $scope.user.sexe = '';
        } else if (action == "put"){
@@ -61,7 +79,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.incomplete = false;
             
             $scope.user.id = id._id;
-            $scope.user.identifiant = id.nomutilisateur;
+            $scope.user.identifiant = id.identifiant;
             $scope.user.nom = id.nom;
             $scope.user.prenom = id.prenom;
             $scope.user.adresse = id.adresse;
@@ -72,7 +90,6 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.user.telephone = id.telephone;
             $scope.user.sexe = id.sexe;
       } else if (action == "delete"){
-          alert('OK')
            $scope.nouveau = false;
             $scope.edit = false;
             $scope.sup = true;

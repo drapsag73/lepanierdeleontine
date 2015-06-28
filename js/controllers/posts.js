@@ -1,4 +1,4 @@
-app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
+app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
 	   $rootScope.loading = true;
 	   $scope.posts = Post.getPosts().then(function(posts){
 	   	$rootScope.loading = false;
@@ -13,18 +13,22 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
         }
         
         $scope.create = function(user){
-                Post.postPost(user);
+            Post.postPost(user);
+            $window.location.reload();
         }
 
         $scope.delete = function(id){
-                Post.postDelete(id);
+            Post.postDelete(id);
+            $window.location.reload();
+
         }
         
         $scope.update = function(user){
             if(isDate(user.datenaissance)){
                 $scope.valideDate = true;
                 Post.postPut(user);
-            }else{
+                $window.location.reload();
+           }else{
                $scope.valideDate = false;
  //               alert("Date invalide !");
             }
@@ -38,7 +42,32 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
                 $scope.valideDate = false;
             }
          }
-         
+
+        $scope.valideMail = true;
+        $scope.changeMail = function(sMail){
+            alert(sMail);
+           if(isMail(sMail)){
+                $scope.valideMail = true;
+            }else{
+                $scope.valideMail = false;
+            }
+         }
+
+        $scope.setMajToAllWords = function(toFirstWord, texte){
+		  var newText = (toFirstWord == true) ? texte.charAt(0).toUpperCase() : texte.charAt(0);
+		  for (var i=0 ; i<texte.length-1 ; i++){
+			 if (texte.charAt(i).match(/[-\s]/) && texte.charAt(i+1).match(/\S/)){
+				newText += texte.charAt(i+1).toUpperCase();
+ 			 } else {
+				newText += texte.charAt(i+1);
+			 }
+		  }
+		  return newText;
+	   }
+	// Exemples
+	// alert (setMajToAllWords(false, "bonjour a tous")); // Affiche "bonjour A Tous"
+	// alert (setMajToAllWords(true, "bonjour a tous")); // Affiche "Bonjour A Tous"
+        
    // $scope.edit = false;
     $scope.nouveau = false;
     $scope.edit = true;
@@ -128,7 +157,6 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, Post){
             $scope.user.datenaissance = '';
             $scope.user.telephone = '';
             $scope.user.sexe = '';
-            $location.href="#/#entete"
         };
     };
 });

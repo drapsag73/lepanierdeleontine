@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+<title>Contrainte de saisie sur champs INPUT</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script><!-- need jquery -->
+<script src="input_constraint.js"></script><!-- on charge la librairie -->
+<style>
+span	{ margin-right:1em; }
+input	{ width:10em; }
+</style>
+</head>
+<body>
+<pre>
+Pour imposer une contraite de saisie sur un champs input, il faut lui préciser une class
+- only_interger		: les entiers (négatif ou positif)
+- only_floats		: les nombres à virgules (négatif ou positif)
+- only_phone_number	: les numéro de téléphone (exemple : +33 02 99 ...)
+- only_zip_code		: les codes postaux français
+- only_email		: un email du type nom@domaine.ext
+- only_alpha_num	: les lettres et les chiffres
+- only_alpha		: les lettres
+- only_hex			: les chiffres hexdécimaux (0->9 et A->F)
+- only_oct			: les chiffres octal (0->7)
+- only_from_list	: uniquement les valeurs présentes dans une liste fourni dans l'attribut "list" de la balise input
+</pre><br/>
+	<form>
+		<div><span>Seulement un entiers</span>					<input type="text" name="int" class="only_integer" value=""/></div>
+		<div><span>Seulement un nombre à virgule</span>			<input type="text" name="int" class="only_float" value=""/></div>
+		<div><span>Seulement un numéro de téléphone</span>		<input type="text" name="int" class="only_phone_number" value=""/></div>
+		<div><span>Seulement un code postale</span>				<input type="text" name="int" class="only_zip_code" value=""/></div>
+		<div><span>Seulement email</span>						<input type="text" name="int" class="only_email" value=""/></div>
+		<div><span>Seulement de l'alpha-numérique</span>		<input type="text" name="int" class="only_alpha_num" value=""/></div>
+		<div><span>Seulement des lettres</span>					<input type="text" name="int" class="only_alpha" value=""/></div>
+		<div><span>Seulement de l'hexadecimal</span>			<input type="text" name="int" class="only_hex" value=""/></div>
+		<div><span>Seulement de l'octale</span>					<input type="text" name="int" class="only_oct" value=""/></div>
+		<div><span>Seulement un element chimique</span>			<input type="text" name="int" class="only_from_list" value="" list="H,He,Li,Be,B,C,N,O,F,Ne,Na,Mg,Al,Si,P,S,Cl,Ar,K,Ca,Sc,Ti,V,Cr,Mn,Fe,Co,Ni,Cu,Zn,Ga,Ge,As,Se,Br,Kr,Rb,Sr,Y,Zr,Nb,Mo,Tc,Ru,Rh,Pd,Ag,Cd,In,Sn,Sb,Te,I,Xe,Cs,Ba,La,Ce,Pr,Nd,Pm,Sm,Eu,Gd,Tb,Dy,Ho,Er,Tm,Yb,Lu,Hf,Ta,W,Re,Os,Ir,Pt,Au,Hg,Tl,Pb,Bi,Po,At,Rn,Fr,Ra,Ac,Th,Pa,U,Np,Pu,Am,Cm,Bk,Cf,Es,Fm,Md,No,Lr,Rf,Db,Sg,Bh,Hs,Mt,Ds,Rg,Cn,Uut,Uuq,Uup,Uuh,Uus,Uuo"/></div>
+	</form>
+</body>
+</html>

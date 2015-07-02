@@ -71,6 +71,10 @@ routePersonnes.route('/')
         personne.messagerie = req.body.message.messagerie;
         personne.telephone =  req.body.message.telephone;
         personne.nomutilisateur = req.body.message.nomutilisateur;
+        personne.profession = req.body.message.profession;
+        personne.conjoint = req.body.message.conjoint;
+        personne.enfants = req.body.message.enfants;
+
        
         
         // save the personne and check for errors
@@ -129,7 +133,10 @@ routePersonnes.route('/:personne_id')
             personne.telephone =  req.body.telephone;
             personne.nomutilisateur = req.body.nomutilisateur;
             personne.identifiant = req.body.identifiant;
-                    
+            personne.profession = req.body.profession;
+            personne.conjoint = req.body.conjoint;
+            personne.famille = req.body.famille;
+                   
   // update the personnes info
 
             // save the personne

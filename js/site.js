@@ -45,6 +45,11 @@ function setMajToAllWords(toFirstWord, texte){
     return newText;
 }
 
+/*function setTitleInfos(infos){
+           return infos.nom;
+        }*/
+
+
 function isMail(sMail){
     if(!sMail.match(/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/i)){
         return false;

@@ -13,6 +13,25 @@ var PersonneSchema   = new Schema({
     ,messagerie:     String
     ,datenaissance:  String
     ,telephone:      String
+    ,activite:       String
+/*    ,conjoint:       {
+        nom:                String
+        ,prenom:            String
+        ,datenaissance:     String
+        ,sexe:              { type: String, match: /[MF]/ }
+        ,activite:          String
+    }*/
+/*    ,famille:        [{
+        nom:                String
+        ,prenom:            String
+        ,datenaissance:     String
+        ,sexe:              { type: String, match: /[MF]/ }
+        ,activite:          String
+        ,parente:           String
+    }]*/
+    
+    ,famille : { type : Array , "default" : [] }
+    
  //    email:          { type: String, match: /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2, 6}$/ }
     
 });

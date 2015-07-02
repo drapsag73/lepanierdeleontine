@@ -1,4 +1,4 @@
-app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
+app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $anchorScroll, $route, Post){
 	   $rootScope.loading = true;
 	   $scope.posts = Post.getPosts().then(function(posts){
 	   	$rootScope.loading = false;
@@ -24,7 +24,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
         }
         
         $scope.update = function(user){
-            if(isDate(user.datenaissance)){
+             if(isDate(user.datenaissance)){
                 $scope.valideDate = true;
                 Post.postPut(user);
                 $window.location.reload();
@@ -45,15 +45,29 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
 
         $scope.valideMail = true;
         $scope.changeMail = function(sMail){
-            alert(sMail);
            if(isMail(sMail)){
                 $scope.valideMail = true;
             }else{
                 $scope.valideMail = false;
             }
          }
+        
+        $scope.setTitleInfos = function(user){
+            $scope.infos = "Identifiant---------: " + user.identifiant + "\n";
+            $scope.infos += "Nom----------------: " + user.nom + "\n";
+            $scope.infos += "Prénom-------------: " + user.prenom + "\n";
+            $scope.infos += "Adresse------------: " + user.adresse + "\n";
+            $scope.infos += "Code Postal--------: " + user.codepostal + "\n";
+            $scope.infos += "Ville--------------: " + user.ville + "\n";
+            $scope.infos += "Messagerie---------: " + user.messagerie + "\n";
+            $scope.infos += "Date de naissance--: " + user.datenaissance + "\n";
+            $scope.infos += "Téléphone----------: " + user.telephone + "\n";
+            $scope.infos += "Sexe---------------: " + user.sexe + "\n";
+            $scope.infos += "Activité-----------: " + user.activite;
+            
+        }
 
-        $scope.setMajToAllWords = function(toFirstWord, texte){
+/*        $scope.setMajToAllWords = function(toFirstWord, texte){
 		  var newText = (toFirstWord == true) ? texte.charAt(0).toUpperCase() : texte.charAt(0);
 		  for (var i=0 ; i<texte.length-1 ; i++){
 			 if (texte.charAt(i).match(/[-\s]/) && texte.charAt(i+1).match(/\S/)){
@@ -64,9 +78,8 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
 		  }
 		  return newText;
 	   }
-	// Exemples
-	// alert (setMajToAllWords(false, "bonjour a tous")); // Affiche "bonjour A Tous"
-	// alert (setMajToAllWords(true, "bonjour a tous")); // Affiche "Bonjour A Tous"
+*/
+    
         
    // $scope.edit = false;
     $scope.nouveau = false;
@@ -76,9 +89,14 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
     $scope.error = false;
     $scope.incomplete = false;
     $scope.user = {};
-    
+    $scope.user.famille = [];
+    $scope.jumpToLocation = function(key){
+        $location.hash(key);
+        $anchorScroll();
+    }
+
     $scope.editUser = function(id, action) {
-         if (action == 'post') {
+        if (action == 'post') {
             $scope.nouveau = true;
             $scope.edit = false;
             $scope.sup = false;
@@ -98,6 +116,9 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
             $scope.user.datenaissance = '';
             $scope.user.telephone = '';
             $scope.user.sexe = '';
+            $scope.user.activite = '';
+            $scope.user.conjoint = '';
+            $scope.user.famille = [];
        } else if (action == "put"){
             $scope.nouveau = false;
             $scope.edit = true;
@@ -118,6 +139,15 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
             $scope.user.datenaissance = id.datenaissance;
             $scope.user.telephone = id.telephone;
             $scope.user.sexe = id.sexe;
+            $scope.user.activite = id.activite;
+            $scope.user.famille = id.famille
+  //          var tampon = {};
+           alert(JSON.stringify($scope.user))
+ //           tampon.nom = id.famille;
+ //           $scope.user.famille.push(tampon);
+ //         alert(JSON.stringify("tampon = " + tampon))
+ //         alert(JSON.stringify($scope.user.famille))
+           
       } else if (action == "delete"){
            $scope.nouveau = false;
             $scope.edit = false;
@@ -138,7 +168,10 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
             $scope.user.datenaissance = id.datenaissance;
             $scope.user.telephone = id.telephone;
             $scope.user.sexe = id.sexe;
-        } else {
+            $scope.user.activite = id.activite;
+            $scope.user.conjoint = id.conjoint;
+            $scope.user.famille = id.famille;
+       } else {
             $scope.nouveau = false;
             $scope.edit = true;
             $scope.sup = false;
@@ -157,6 +190,9 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $route, Post){
             $scope.user.datenaissance = '';
             $scope.user.telephone = '';
             $scope.user.sexe = '';
+            $scope.user.activite = '';
+            $scope.user.conjoint = '';
+            $scope.user.famille = [];
         };
     };
 });

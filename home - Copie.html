@@ -16,7 +16,7 @@
                
             </td>
             <td class="colliste">
-                <h1>Liste des Bénéficiares</h1>
+                <h1>Liste des utilisateurs</h1>
             </td>
             <td class="colsearch">
                <span class="glyphicon glyphicon-search"></span>
@@ -69,9 +69,9 @@
         
         <hr>
          
-        <h3 ng-show="nouveau">Création d'un nouvel utilisateur</h3>
-        <h3 ng-show="edit">Modification d'un utilisateur</h3>
-        <h3 ng-show="sup">Suppression d'un utilisateur</h3>
+        <h3 ng-show="nouveau">Création d'un nouvel utilisateur :</h3>
+        <h3 ng-show="edit">Modification d'un utilisateur :</h3>
+        <h3 ng-show="sup">Suppression d'un utilisateur :</h3>
     
        
         <form class="form-horizontal" name="formSaisie">
@@ -141,110 +141,6 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Activité :</label>
-                <div class="col-sm-10">
-                    <select ng-model="user.activite" ng-disabled="sup || ann" placeholder="Activité">
-                        <option value="Salarie">Salarié</option>
-                        <option value="Maternite">Congé Maternité</option>
-                        <option value="Conge">Congé parental</option>
-                        <option value="DemAsile">Demandeur d'Asile</option>
-                        <option value="DemEmploi">Demandeur d'emploi</option>
-                        <option value="Attente">En attente de droit</option>
-                        <option value="Handicape">Handicapé(e)</option>
-                        <option value="Interimaire">Intérimaire</option>
-                        <option value="Invalide">Invalide</option>
-                        <option value="Retraite">Retraité(e)</option>
-                    </select>
-                </div>
-            </div>
-<!-------------------CONJOINT-------------------------->       
-           
-            <div class="form-group">
-                <h4 class="col-sm-2 control-label">Conjoint</h4>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Sexe :</label>
-                <div class="col-sm-10">
-                    <select ng-model="user.famille[0].sexe" ng-disabled="sup || ann" placeholder="Sexe">
-                        <option value="M">Masculin</option>
-                        <option value="F">Féminin</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Nom : </label>
-                <div class="col-sm-10">
-                    <input type="string" ng-model="user.famille[0].nom" ng-disabled="sup || ann" class="uppercase" onChange="javascript:this.value=this.value.toUpperCase();" placeholder="Nom Conjoint">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Prénom : </label>
-                <div class="col-sm-10">
-                    <input type="string" ng-model="user.famille[0].prenom" ng-disabled="sup || ann" onChange="javascript:this.value=setMajToAllWords(true, this.value)" placeholder="Prénom Conjoint">
-                </div>
-            </div>
-            <div class="form-group">
-               <label class="col-sm-2 control-label">Date de naissance : </label>
-                <div class="col-sm-10">
-                    <input type="string" ng-model="user.famille[0].datenaissance" ng-disabled="sup || ann" placeholder="jj/mm/aaaa" ng-blur="changeDate(user.famille.datenaissance)">
-                    <span class="invalide" ng-show="!valideDate">Date invalide !</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Activité :</label>
-                <div class="col-sm-10">
-                    <select ng-model="user.famille[0].activite" ng-disabled="sup || ann" placeholder="Profession">
-                        <option value="Salarie">Salarié</option>
-                        <option value="Maternite">Congé Maternité</option>
-                        <option value="Conge">Congé parental</option>
-                        <option value="Dem_Asile">Demandeur d'Asile</option>
-                        <option value="Dem_emploi">Demandeur d'emploi</option>
-                        <option value="Attente">En attente de droit</option>
-                        <option value="Handicape">Handicapé(e)</option>
-                        <option value="Interimaire">Intérimaire</option>
-                        <option value="Invalide">Invalide</option>
-                        <option value="Retraite">Retraité(e)</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Parenté :</label>
-                <div class="col-sm-10">
-                    <select ng-model="user.famille[0].parente" ng-disabled="sup || ann" placeholder="Parenté">
-                        <option value="Conjoint">Conjoint</option>
-                        <option value="EnfantMin">Enfant Mineur</option>
-                        <option value="EnfantMaj">Enfant Majeur</option>
-                        <option value="Parent">Parent</option>
-                        <option value="GrandParent">Grand Parent</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </div>
-            </div>
-<!---------------COMPOSITION DE LA FAMILLE------------>            
-            <div class="form-group">
-                <h4 class="col-sm-2 control-label">Personnes à charge</h4>
-            </div>
- 
-            <tr ng-repeat="famille in user.famille">
-                <td class="colnom">{{famille.nom}}
-                </td>
-                <td class="colprenom">{{famille.prenom}}
-                </td>
-                <td>{{famille.datenaissance}}
-                </td>
-                <td>{{famille.sexe}}
-                </td>
-                <td>{{famille.parente}}
-                </td>
-                <td>{{famille.activite}}
-                </td>
-                <td>{{famille.parente}}
-                </td>
-            </tr>
-
-<!--------------BOUTONS DE VALIDATION----------------->            
-
         <table id="bouton">
             <tr>
                 <td>

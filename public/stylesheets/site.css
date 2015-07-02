@@ -95,6 +95,14 @@ td.colville {
     cursor:pointer;
 } 
 
+#infosutilisateurs.td.porteur {
+     width:auto;
+}
+
+#infosutilisateurs.td.complement {
+    width:auto;
+}
+
 a:link {
  color: #000;
  text-decoration: none;

@@ -8,12 +8,12 @@ var express         = require('express')       // call express
 
 // On se connecte à la base de données
 // Ne pas oublier de lancer ~/mongodb/bin/mongod dans un terminal !
-mongoose.connect('mongodb://localhost/personnes', function(err) {
+mongoose.connect('mongodb://localhost/lepanierdeleontine', function(err) {
   if (err) { throw err; }
 });
 
 
-// ROUTES POUR NOTRE API
+// ROUTES POUR PERSONNES
 // =============================================================================
 var routePersonnes = express.Router();              // Récupère l'instance du router d'Express
 
@@ -72,8 +72,8 @@ routePersonnes.route('/')
         personne.telephone =  req.body.message.telephone;
         personne.nomutilisateur = req.body.message.nomutilisateur;
         personne.profession = req.body.message.profession;
-        personne.conjoint = req.body.message.conjoint;
-        personne.enfants = req.body.message.enfants;
+        personne.activite = req.body.message.activite;
+        personne.famille = req.body.message.famille;
 
        
         
@@ -108,6 +108,7 @@ routePersonnes.route('/:personne_id')
                 res.send(err);
             res.json(personne);
         });
+        mongoose.connection.close();
     })
     
     // update the personne with this id (accessed at PUT http://localhost:8090/personnes/:personne_id)
@@ -162,5 +163,8 @@ routePersonnes.route('/:personne_id')
             res.json({ message: 'Suppression effectuée avec succès' });
         });
     });
-    
+
+
+
+
 module.exports = routePersonnes;

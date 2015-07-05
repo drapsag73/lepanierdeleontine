@@ -82,6 +82,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
     
         
    // $scope.edit = false;
+    $scope.majCharge = [];
     $scope.nouveau = false;
     $scope.edit = true;
     $scope.sup = false;
@@ -142,7 +143,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.activite = id.activite;
             $scope.user.famille = id.famille
   //          var tampon = {};
-           alert(JSON.stringify($scope.user))
+  //         alert(JSON.stringify($scope.user))
  //           tampon.nom = id.famille;
  //           $scope.user.famille.push(tampon);
  //         alert(JSON.stringify("tampon = " + tampon))
@@ -195,5 +196,15 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.famille = [];
         };
     };
+    $scope.modifCharge = function(index, maj) {
+        $scope.majCharge[index] = maj;
+        console.log(index)
+        console.log(maj)
+    }
+    
+    $scope.ajouteCharge = function() {
+        $scope.user.famille.push($scope.temp);
+        $scope.temp = []
+   }
 });
 

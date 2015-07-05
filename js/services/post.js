@@ -36,6 +36,7 @@ app.factory('Post', function($http, $q) {
         
         postPost : function(post){
   			var deferred = $q.defer();
+            alert(JSON.stringify(post))
              $http.post('http://192.168.0.16:8090/personnes', {'message': post})
                 .success(function(data, status){
                     console.log('SUCCES');
@@ -64,17 +65,6 @@ app.factory('Post', function($http, $q) {
         },
         
         postPut : function(user){
-            var tampon = {};
-/*            tampon.sexe = user.famille.sexe
-            tampon.nom = user.famille.nom
-            tampon.prenom = user.famille.prenom
-            tampon.datenaissance = user.famille.datenaissance
-            tampon.activite = user.famille.activite
-            tampon.parente = user.famille.parente
-            user.famille = []
-            user.famille.push(tampon);
-            user.famille['nom'] = user.famille.nom*/
-            alert(JSON.stringify(user.famille))
    			var deferred = $q.defer();
              $http.put('http://192.168.0.16:8090/personnes/' + user.id, user)
                 .success(function(data, status){

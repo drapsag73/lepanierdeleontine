@@ -8,6 +8,7 @@ var express         = require('express')        // call express
     ,app            = express()                 // define our app using express
     ,bodyParser     = require('body-parser')
     ,routePersonnes = require('./routes/routePersonnes')
+    ,routeProduits  = require('./routes/routeProduits')
     ,mongoose       = require('mongoose')
 
 // configure app to use bodyParser()
@@ -20,6 +21,7 @@ var port = process.env.PORT || 8090;        // set our port
 // REGISTER OUR ROUTES -------------------------------
 // 
 app.use('/personnes', routePersonnes);
+app.use('/produits', routeProduits);
 
 // START THE SERVER
 // =============================================================================

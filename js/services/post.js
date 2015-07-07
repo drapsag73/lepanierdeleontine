@@ -66,9 +66,9 @@ app.factory('Post', function($http, $q) {
         
         postPut : function(user){
    			var deferred = $q.defer();
-             $http.put('http://192.168.0.16:8090/personnes/' + user.id, user)
+            alert(JSON.stringify(user))
+            $http.put('http://192.168.0.16:8090/personnes/' + user.id, user)
                 .success(function(data, status){
-                    console.log('MISE A JOUR OK');
   					factory.posts = data;
 					deferred.resolve(factory.posts);
                 })

@@ -135,7 +135,7 @@ routePersonnes.route('/:personne_id')
             personne.nomutilisateur = req.body.nomutilisateur;
             personne.identifiant = req.body.identifiant;
             personne.profession = req.body.profession;
-            personne.conjoint = req.body.conjoint;
+            personne.activite = req.body.activite;
             personne.famille = req.body.famille;
                    
   // update the personnes info

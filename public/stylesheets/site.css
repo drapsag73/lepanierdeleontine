@@ -1,3 +1,8 @@
+
+div.gestUtilisateur {
+    display: table-cell;
+}
+
 #entete.h1 {
     text-align: center;
 }
@@ -133,6 +138,53 @@ input.uppercase {
     text-transform: uppercase; 
 }
 
+.enteteListe {
+    font-size: 2em;
+    background-color: #487b29;
+    color: #ffffff;
+    cursor:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.enteteCol {
+    font-size: 1.1em;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #42afc9;
+    color: #ffffff;
+    cursor: auto;
+ }
+
+.ligneAcharge {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 35px;
+}
+
+div.ligneAcharge:nth-child(odd) {
+    color: #000000;
+    background-color: #FFF;
+}
+
+div.ligneAcharge:nth-child(even) {
+    color: #000000;
+    background-color: #d3e3f2;
+}
+
+.cellule {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    border: 1px solid #98bf21;
+}
+
+
 #personnecharge {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -156,6 +208,19 @@ input.uppercase {
     color: #ffffff;
     cursor:pointer;
 
+}
+#personnecharge th.enteteListe {
+    background-color: #487b29;
+    color: #ffffff;
+    cursor:auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 10px;
+}
+
+#personnecharge h3 {
+    margin-top: 10px;
+ 
 }
 
 #personnecharge tr:nth-child(odd) td {
@@ -198,4 +263,14 @@ td.colchargeparente {
     text-align: center;
     width:10%;
 }
+ .rouge {
+     color: red;
+ }
 
+.vert {
+    color: green;
+}
+
+.bleu {
+    color: blue;
+}

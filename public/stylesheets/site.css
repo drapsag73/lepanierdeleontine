@@ -146,8 +146,21 @@ input.uppercase {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 }
+.enteteListeS {
+    font-size: 2em;
+    background-color: #7b2929;
+    color: #ffffff;
+    cursor:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 
 .enteteCol {
     font-size: 1.1em;

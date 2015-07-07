@@ -159,7 +159,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.incomplete = false;
             
             $scope.user.id = id._id;
-            $scope.user.identifiant = id.nomutilisateur;
+            $scope.user.identifiant = id.identifiant;
             $scope.user.nom = id.nom;
             $scope.user.prenom = id.prenom;
             $scope.user.adresse = id.adresse;

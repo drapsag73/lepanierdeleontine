@@ -5,8 +5,7 @@ app.config(function ($routeProvider) {
 			controller: 'postsCtrl'})
         .when('/beneficiaires', {templateUrl: 'beneficiaires.html', controller: 'postsCtrl'})
         .when('/produits', {templateUrl: 'produits.html', controller: 'produitsCtrl'})
-		.when('/comments/:nomutilisateur', {templateUrl: 'comments.html',
-			controller: 'commentsCtrl'})
+		.when('/comments/:nomutilisateur', {templateUrl: 'comments.html', controller: 'commentsCtrl'})
 		.otherwise({redirectTo: '/'});
 });
 

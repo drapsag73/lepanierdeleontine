@@ -138,9 +138,20 @@ input.uppercase {
     text-transform: uppercase; 
 }
 
-.enteteListe {
+.enteteListeM {
     font-size: 2em;
     background-color: #487b29;
+    color: #ffffff;
+    cursor:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.enteteListeC {
+    font-size: 2em;
+    background-color: #050ba2;
     color: #ffffff;
     cursor:auto;
     padding-top: 10px;

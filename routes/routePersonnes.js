@@ -73,6 +73,7 @@ routePersonnes.route('/')
         personne.nomutilisateur = req.body.message.nomutilisateur;
         personne.profession = req.body.message.profession;
         personne.activite = req.body.message.activite;
+        personne.categorie = req.body.message.categorie;
         personne.famille = req.body.message.famille;
 
        
@@ -136,6 +137,7 @@ routePersonnes.route('/:personne_id')
             personne.identifiant = req.body.identifiant;
             personne.profession = req.body.profession;
             personne.activite = req.body.activite;
+            personne.categorie = req.body.categorie;
             personne.famille = req.body.famille;
                    
   // update the personnes info

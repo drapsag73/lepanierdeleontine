@@ -52,6 +52,31 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             }
          }
         
+        $scope.changeCategorie = function(categorie,texteCategorie){
+            $scope.query.categorie=categorie;
+            $scope.editUser('annuler', 'annuler');
+            $scope.liste = texteCategorie;
+         }
+            
+        
+        $scope.initRecherche = function(){
+            $scope.recherche="";
+            switch($scope.liste){
+                case 'Les Bénéficiaires':
+                    $scope.query.categorie='beneficiaires';
+                    break;
+                case 'Les Bénévoles':
+                   $scope.query.categorie='benevoles';
+                    break;
+                case 'Les Solidaires':
+                     $scope.query.categorie='solidaires';
+                    break;
+                default:
+                    $scope.query.categorie='';
+                
+            }
+        }
+        
         $scope.setTitleInfos = function(user){
             $scope.infos = "Identifiant---------: " + user.identifiant + "\n";
             $scope.infos += "Nom----------------: " + user.nom + "\n";
@@ -91,6 +116,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
     $scope.incomplete = false;
     $scope.user = {};
     $scope.user.famille = [];
+    $scope.query = "";
     $scope.jumpToLocation = function(key){
         $location.hash(key);
         $anchorScroll();
@@ -118,7 +144,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.telephone = '';
             $scope.user.sexe = '';
             $scope.user.activite = '';
-            $scope.user.conjoint = '';
+            $scope.user.categorie = '';
             $scope.user.famille = [];
        } else if (action == "put"){
             $scope.nouveau = false;
@@ -141,6 +167,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.telephone = id.telephone;
             $scope.user.sexe = id.sexe;
             $scope.user.activite = id.activite;
+            $scope.user.categorie = id.categorie;
             $scope.user.famille = id.famille
   //          var tampon = {};
   //         alert(JSON.stringify($scope.user))
@@ -170,7 +197,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.telephone = id.telephone;
             $scope.user.sexe = id.sexe;
             $scope.user.activite = id.activite;
-            $scope.user.conjoint = id.conjoint;
+            $scope.user.categorie = id.categorie;
             $scope.user.famille = id.famille;
        } else {
             $scope.nouveau = false;
@@ -192,7 +219,7 @@ app.controller('postsCtrl', function($scope, $rootScope, $window, $location, $an
             $scope.user.telephone = '';
             $scope.user.sexe = '';
             $scope.user.activite = '';
-            $scope.user.conjoint = '';
+            $scope.user.categorie = '';
             $scope.user.famille = [];
         };
     };
